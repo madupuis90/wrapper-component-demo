@@ -1,0 +1,16 @@
+
+<div class="container">
+  @if (editing()) {
+    <div class="wrapper-editing">
+      <ng-content></ng-content>
+      <div>
+        <button mat-mini-fab (click)="save()">Save</button>
+        <button mat-mini-fab (click)="close()">X</button>
+      </div>
+    </div>
+  } @else {
+    <div class="wrapper-static" (click)="open()">
+      <p>{{cachedValue()}}</p>
+    </div>
+  }
+</div>

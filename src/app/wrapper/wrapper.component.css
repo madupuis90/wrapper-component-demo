@@ -1,0 +1,15 @@
+.container {}
+
+.wrapper-editing {
+  display: flex;
+  flex-direction: row;
+}
+
+::ng-deep .wrapper-editing .mat-mdc-form-field {
+  /* flex-grow: 1; */
+}
+
+.wrapper-static:hover {
+  cursor: pointer;
+  background-color: rgba(255, 145, 202, 0.8);
+}

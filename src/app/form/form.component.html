@@ -1,0 +1,38 @@
+<form [formGroup]="userForm">
+@if (mode === 'create') {
+  <mat-form-field>
+    <input matInput formControlName="name" placeholder="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="email" placeholder="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="age" placeholder="age">
+    <mat-error>{{userForm.get('age')?.errors | json}}</mat-error>
+  </mat-form-field>
+} @else {
+
+    <app-wrapper [patchFunction]="patchUser">
+      <mat-form-field>
+        <input matInput formControlName="name" placeholder="name">
+      </mat-form-field>
+    </app-wrapper>
+     
+    <app-wrapper [patchFunction]="patchUser">
+      <mat-form-field>
+        <input matInput formControlName="email" placeholder="email">
+      </mat-form-field>
+    </app-wrapper>
+  
+    <app-wrapper [patchFunction]="patchUser">
+      <mat-form-field>
+        <input matInput formControlName="age" placeholder="age">
+        <mat-error>{{userForm.get('age')?.errors | json}}</mat-error>
+      </mat-form-field>
+    </app-wrapper>
+}
+</form>
+
+<button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
